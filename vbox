@@ -6,3 +6,9 @@ VBoxManage hostonlyif create
 Vboxmanage hostonlyif remove "VirtualBox Host-Only Ethernet Adapter"
 --
 VBoxManage hostonlyif ipconfig "VirtualBox Host-Only Ethernet Adapter" --ip 172.17.101.143 --netmask 255.255.0.0
+--
+VBoxHeadless.exe -startvm "linux"
+--
+"VirtualBox Host-Only Ethernet Adapter"
+--
+VBoxManage dhcpserver remove --ifname "VirtualBox Host-Only Ethernet Adapter"
