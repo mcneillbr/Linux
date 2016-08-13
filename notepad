@@ -1,0 +1,33 @@
+https://freeswitch.org/confluence/display/FREESWITCH/Installing+LuaSQL
+
+--
+function rows (connection, sql_statement)
+  local cursor = assert (connection:execute (sql_statement))
+  return function ()
+    return cursor:fetch()
+  end
+end
+
+--
+--
+env = assert (require("luasql.mysql").mysql())
+print("load db driver",env);
+--
+con = assert (env:connect('temp','root', '@c3ss0!Now', '127.0.0.1', 3306));
+print ('connection', con);
+
+
+for id, name, address in rows (con, "select * from contacts") do
+  print (string.format ("%s: %s", name, address))
+end
+
+---- cur:close()
+con:close()
+env:close()
+
+
+--
+-- assert (env:close());
+
+print("close db", env);
+env = nil;
