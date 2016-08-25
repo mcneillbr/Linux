@@ -1,3 +1,5 @@
+transf byte console.info( 8000 >> Math.log2(1024))
+
 http://www.linphone.org/downloads-for-desktop.html
 https://github.com/seanbright/asterisk-opus/
 
